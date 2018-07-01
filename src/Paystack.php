@@ -665,7 +665,6 @@ class Paystack
     
     /**
      * Create transfer recipients. Required params are account_name , aacount_number, account_name, bank_name
-     * @param subaccount code 
      * @return array
      */
     public function createTransferRecipient()
