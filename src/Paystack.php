@@ -661,4 +661,26 @@ class Paystack
         return $this->setHttpResponse("/subaccount/{$subaccount_code}", "PUT", array_filter($data))->getResponse();
 
     }
+    
+    
+    /**
+     * Create transfer recipients. Required params are account_name , aacount_number, account_name, bank_name
+     * @param subaccount code 
+     * @return array
+     */
+    public function createTransferRecipient()
+    {
+        $data = [
+            "type" => 'nuban',
+            "name" => request()->account_name,
+            "account_number" => request()->account_number,
+            "account_name" => request()->account_name,
+            "bank_code" => request()->bank_name,
+            "currency" => 'NGN',
+        ];
+
+        $this->setRequestOptions();
+        return $this->setHttpResponse('/transferrecipient', 'POST', $data)->getResponse();
+    }
+
 }
